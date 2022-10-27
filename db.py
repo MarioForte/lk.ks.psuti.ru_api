@@ -11,7 +11,7 @@ class BotDB:
         query = self.cursor.execute(
             "SELECT obj FROM settings WHERE peer_id = ?", (peer_id,))
         result = query.fetchone()
-        if not bool(len(result)):
+        if not bool(result):
             return False
         else:
             return int(result[0])

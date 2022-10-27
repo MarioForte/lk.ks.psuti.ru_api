@@ -7,7 +7,7 @@ PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
 -- Таблица: settings
-CREATE TABLE settings (peer_id INTEGER UNIQUE NOT NULL, obj VARCHAR (2) UNIQUE NOT NULL);
+CREATE TABLE settings (peer_id INTEGER UNIQUE NOT NULL, obj VARCHAR (2) NOT NULL);
 
 -- Индекс: sqlite_autoindex_settings_1
 CREATE INDEX sqlite_autoindex_settings_1 ON settings (peer_id COLLATE BINARY);
