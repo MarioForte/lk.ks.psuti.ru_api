@@ -58,8 +58,7 @@ def get_json(obj):
             result[day][m] = dict(zip(keys, query))
     return result
 
-
-# print(get_json(soup))
-# with open("result.json", 'w+') as file:
-#     dump = get_json(soup)
-#     json.dump(dump, file, indent=4, ensure_ascii=False)
+if __name__ == "__main__":
+    with open("result.json", 'w+') as file:
+        dump = get_json(11)
+        json.dump(dump, file, indent=4, ensure_ascii=False)

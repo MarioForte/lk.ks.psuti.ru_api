@@ -17,7 +17,9 @@ class BotDB:
             return int(result[0])
 
     def obj_write(self, peer_id, obj):
-        self.cursor.execute(
-            "INSERT INTO settings (peer_id, obj) VALUES (?, ?)", (peer_id, obj)
-        )
+        query = """
+                INSERT INTO settings (peer_id, obj) VALUES (?, ?) 
+                ON CONFLICT(peer_id) DO UPDATE SET obj = ? WHERE peer_id = ?
+                """
+        self.cursor.execute(query, (peer_id, obj, obj, peer_id))
         return self.conn.commit()
