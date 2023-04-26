@@ -9,14 +9,12 @@ from tokens import *
 from response import *
 from db import BotDB
 
+
 bot = SimpleLongPollBot(tokens=bot_token, group_id=bot_id)
 
 vkapi = API(clients=AIOHTTPClient(), tokens=bot_token).get_context()
 
 BotDB = BotDB('database.db')
-
-
-# api = API(clients=AIOHTTPClient(), tokens=bot_token).get_context()
 
 
 def get_settings_keyboard(obj):

@@ -25,7 +25,7 @@ def get_days_of_week(obj):
     return result.keys()
 
 
-def get_json(obj):
+def get_json(obj: int):
     soup = create_soup(obj)
     rows = soup.find_all('tr', {'align': 'center'})
     i = 0
@@ -58,7 +58,8 @@ def get_json(obj):
             result[day][m] = dict(zip(keys, query))
     return result
 
+
 if __name__ == "__main__":
     with open("result.json", 'w+') as file:
-        dump = get_json(11)
+        dump = get_json(0)  # Здесь в качестве аргумента необходимо передать объект группы из GET запроса к расписанию.
         json.dump(dump, file, indent=4, ensure_ascii=False)
